@@ -136,7 +136,7 @@ resource "azurerm_linux_virtual_machine" "nva_vm" {
   name                            = "vm-nva-router"
   resource_group_name             = azurerm_resource_group.rg.name
   location                        = azurerm_resource_group.rg.location
-  size                            = "Standard_D2s_v3" 
+  size                            = "Standard_D2_v3" 
   admin_username                  = "azureadmin"
   admin_password                  = var.admin_password
   disable_password_authentication = false
@@ -287,7 +287,7 @@ resource "azurerm_linux_virtual_machine" "dev_vm" {
   name                            = "vm-dev-workload"
   resource_group_name             = azurerm_resource_group.rg.name
   location                        = azurerm_resource_group.rg.location
-  size                            = "Standard_D2s_v3" 
+  size                            = "Standard_D2s_v3"
   admin_username                  = "azureadmin"
   admin_password                  = var.admin_password
   disable_password_authentication = false
