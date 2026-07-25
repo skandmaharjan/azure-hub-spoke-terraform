@@ -45,13 +45,13 @@ To confirm the routing and security design functioned as intended (not just that
 - **Action:** Attempted SSH directly from the `Dev Workload` VM to the `Prod Workload` VM's private IP.
 - **Result:** Connection timed out. Since the Dev subnet is outside the Hub's address range, the NSG's implicit deny silently dropped the traffic — no explicit `Allow` rule matched the source.
 
-![Dev to Prod connection timeout](screenshots/1.png)
+![Dev to Prod connection timeout](screenshots/2.png)
 
 **Test 2: Authorized Traffic Successfully Routes Through the Hub**
 - **Action:** Attempted SSH from the `NVA Router` (Hub, `10.0.1.10`) to the `Prod Workload` VM's private IP.
 - **Result:** Success — the NSG's `Allow-SSH-From-Hub` rule matched the Hub's source address range, and the session was established.
 
-![NVA successfully connecting to Prod](screenshots/2.png)
+![NVA successfully connecting to Prod](screenshots/1.png)
 
 Together, these two tests confirm the NSG is enforcing least-privilege access as designed: traffic is permitted only from the trusted Hub network, and blocked from other spokes by default.
 
